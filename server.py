@@ -8,7 +8,9 @@ def index():
 @app.route('/checkout', methods=['POST'])         
 def checkout():
     print(request.form)
-    return render_template("checkout.html")
+    x = int(request.form['apple'])+int(request.form['raspberry'])+int(request.form['strawberry'])
+    print(f"Charging {request.form['first_name']} for {x} fruits ")
+    return render_template("checkout.html", user_info = request.form)
 
 @app.route('/fruits')         
 def fruits():
